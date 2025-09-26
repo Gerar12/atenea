@@ -88,7 +88,7 @@ export async function GET() {
     .toBuffer();
 
     // Devolver la imagen como respuesta
-    return new NextResponse(finalImage, {
+    return new Response(finalImage as any, {
       headers: {
         'Content-Type': 'image/png',
         'Content-Disposition': 'inline; filename="qr-invitacion-atenea.png"',
