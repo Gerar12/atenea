@@ -4,25 +4,24 @@ import sharp from 'sharp';
 
 export async function GET() {
   try {
-    // URL de la página de invitación
-    const invitationUrl = process.env.NODE_ENV === 'production'
-      ? 'https://tudominio.com/invitacion'  // Cambia esto a tu dominio real
+    // URL de la página de invitación usando variable de entorno o fallback
+    const invitationUrl = process.env.NEXT_PUBLIC_URL
+      ? `${process.env.NEXT_PUBLIC_URL}/invitacion`
+      : process.env.NODE_ENV === 'production'
+      ? 'https://atenea.gcoder.dev/invitacion'
       : 'http://localhost:3000/invitacion';
 
     // Generar QR code como buffer
     const qrBuffer = await QRCode.toBuffer(invitationUrl, {
-      errorCorrectionLevel: 'M', // Corrección media de errores
+      errorCorrectionLevel: 'M',
       type: 'png',
       width: 280,
       margin: 1,
       color: {
-        dark: '#000000', // Negro para mejor contraste
+        dark: '#000000',
         light: '#FFFFFF'
       }
     });
-
-    // Usar el QR directamente sin logo
-    const finalQR = qrBuffer;
 
     // Crear una imagen final con marco dorado y texto
     const finalImage = await sharp({
@@ -36,7 +35,7 @@ export async function GET() {
     .composite([
       {
         input: Buffer.from(`
-          <svg width="360" height="450">
+          <svg width="360" height="450" xmlns="http://www.w3.org/2000/svg">
             <!-- Marco dorado -->
             <rect x="30" y="70" width="300" height="300"
               fill="white"
@@ -79,7 +78,7 @@ export async function GET() {
         left: 0
       },
       {
-        input: finalQR,
+        input: qrBuffer,
         top: 80,
         left: 40
       }
