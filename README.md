@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="https://res.cloudinary.com/dewy8qqaf/image/upload/v1758754241/logo_d7bdvf.png" alt="Atenea Logo" width="400" />
 
-## Getting Started
+  # **Atenea**
+  ### Página Oficial del Proyecto
 
-First, run the development server:
+  [![Desarrollado por](https://img.shields.io/badge/Desarrollado%20por-Salex%20Corp-blue)](https://salexcorp.com)
+  [![Código Cerrado](https://img.shields.io/badge/Licencia-Código%20Cerrado-red)]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+</div>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Acerca del Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Atenea** es un sistema integral de gestión de invitados y control de acceso desarrollado por **Salex Corp**. Esta plataforma web moderna permite la administración eficiente de eventos, registro de invitados y generación de códigos QR únicos para el control de acceso.
 
-## Learn More
+### ✨ Características Principales
 
-To learn more about Next.js, take a look at the following resources:
+- **Gestión de Invitados**: Sistema completo para administrar listas de invitados con información detallada
+- **Códigos QR Únicos**: Generación automática de códigos QR personalizados para cada invitado
+- **Control de Acceso**: Verificación en tiempo real del estado de los invitados
+- **Panel de Administración**: Interfaz intuitiva para la gestión completa del evento
+- **Registro de Actividad**: Seguimiento detallado de todas las interacciones
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tecnologías Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js 14** - Framework React con App Router
+- **TypeScript** - Tipado estático para mayor robustez
+- **Prisma** - ORM moderno para gestión de base de datos
+- **PostgreSQL** - Base de datos relacional
+- **Tailwind CSS** - Framework de estilos utility-first
+- **NextAuth.js** - Autenticación segura
 
-## Deploy on Vercel
+## 🚀 Instalación
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este es un proyecto de **código cerrado** propiedad de Salex Corp. Para solicitar acceso o información sobre licencias, contacte al equipo de desarrollo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Requisitos Previos
+
+- Node.js 18+
+- PostgreSQL 14+
+- npm o yarn
+
+### Configuración del Entorno
+
+1. Clone el repositorio (requiere permisos)
+2. Instale las dependencias:
+   ```bash
+   npm install
+   ```
+3. Configure las variables de entorno en `.env`
+4. Ejecute las migraciones de base de datos:
+   ```bash
+   npx prisma migrate dev
+   ```
+5. Inicie el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+## 📖 Documentación
+
+La documentación completa está disponible para usuarios autorizados. Contacte a soporte técnico para obtener acceso.
+
+## 🔒 Seguridad
+
+Atenea implementa las mejores prácticas de seguridad:
+- Autenticación robusta con tokens JWT
+- Encriptación de datos sensibles
+- Validación exhaustiva de entrada
+- Protección contra ataques comunes (XSS, CSRF, SQL Injection)
+
+## 📞 Contacto y Soporte
+
+Para consultas sobre el proyecto, licencias o soporte técnico:
+
+- **Email**: soporte@salexcorp.com
+- **Web**: [salexcorp.com](https://salexcorp.com)
+
+---
+
+<div align="center">
+
+  **© 2025 Salex Corp. Todos los derechos reservados.**
+
+  Este es un proyecto de código cerrado. Prohibida su distribución o uso no autorizado.
+
+</div>
