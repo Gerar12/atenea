@@ -121,7 +121,7 @@ export default function Invitacion() {
         }
       `}</style>
 
-      <main className="h-screen flex items-center justify-center px-4 py-4 overflow-hidden bg-bosque">
+      <main className="min-h-screen flex items-center justify-center px-4 pb-16 pt-4 overflow-hidden bg-bosque">
         <div className="max-w-md w-full flex flex-col gap-4">
           {/* Logo y Encabezado compacto */}
           <div className="text-center animate-fade-in">
@@ -179,25 +179,6 @@ export default function Invitacion() {
           <div className="text-center text-marfil/30 text-xs tracking-widest animate-fade-in">
             <p>INVITACIÓN PERSONAL E INTRANSFERIBLE</p>
           </div>
-        </div>
-
-        {/* Footer con Powered by Salex */}
-        <div className="fixed bottom-4 left-0 right-0 flex justify-center">
-          <a
-            href="https://salex.sv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-          >
-            <span className="text-sm text-marfil/40">Powered by</span>
-            <Image
-              src="/s.png"
-              alt="Salex"
-              width={50}
-              height={20}
-              className="h-5 w-auto opacity-70"
-            />
-          </a>
         </div>
 
         {/* Modal de Formulario */}
