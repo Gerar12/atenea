@@ -10,6 +10,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Residencial Atenea",
   description: "Un enclave único donde la naturaleza se convierte en tu mayor lujo",
+  icons: {
+    icon: '/a.svg',
+    shortcut: '/a.svg',
+    apple: '/a.svg',
+  },
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,6 +13,8 @@ export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [email, setEmail] = useState('')
+  const [subscribed, setSubscribed] = useState(false)
   const totalSlides = images.length
 
   const showSlide = (index: number) => {
@@ -40,6 +42,17 @@ export default function Hero() {
 
   const showLightboxImage = (index: number) => {
     setLightboxIndex((index + images.length) % images.length)
+  }
+
+  const handleSubscribe = (e: FormEvent) => {
+    e.preventDefault()
+    if (email) {
+      setSubscribed(true)
+      setTimeout(() => {
+        setSubscribed(false)
+        setEmail('')
+      }, 3000)
+    }
   }
 
   // Auto-play carousel
@@ -76,17 +89,45 @@ export default function Hero() {
               </h1>
 
               {/* Descripción minimalista */}
-              <p className="text-xl lg:text-2xl xl:text-3xl text-marfil/80 mb-12 font-light leading-relaxed">
+              <p className="text-xl lg:text-2xl xl:text-3xl text-marfil/80 mb-8 font-light leading-relaxed">
                 Un enclave único donde la naturaleza se convierte en tu mayor lujo.
               </p>
 
-              {/* CTA único y elegante */}
-              <Link
-                href="/reservar"
-                className="inline-block bg-transparent border-2 border-dorado text-dorado px-12 py-4 hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider text-lg"
-              >
-                DESCUBRIR
-              </Link>
+              {/* Badge Próximamente */}
+              <div className="mb-8">
+                <span className="inline-block bg-dorado/20 border border-dorado/40 text-dorado px-6 py-2 rounded-full text-sm font-medium tracking-wider">
+                  PRÓXIMAMENTE
+                </span>
+              </div>
+
+              {/* Formulario de suscripción */}
+              <div className="space-y-4">
+                <p className="text-marfil/60 text-sm lg:text-base">
+                  Ingresa tu correo para recibir noticias lo más pronto posible
+                </p>
+                {subscribed ? (
+                  <div className="bg-dorado/20 border border-dorado/40 rounded-md px-6 py-3 text-dorado text-center">
+                    ¡Gracias! Te notificaremos pronto.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md">
+                    <input
+                      type="email"
+                      placeholder="Tu correo electrónico"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-6 py-3 bg-bosque/50 border border-dorado/30 rounded-md text-marfil placeholder-marfil/40 focus:outline-none focus:border-dorado focus:ring-1 focus:ring-dorado/30 transition-all"
+                      required
+                    />
+                    <button
+                      type="submit"
+                      className="px-8 py-3 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-md"
+                    >
+                      NOTIFICARME
+                    </button>
+                  </form>
+                )}
+              </div>
 
               {/* Info mínima */}
               <div className="mt-16 flex gap-12">
