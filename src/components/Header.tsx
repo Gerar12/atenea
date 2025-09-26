@@ -20,8 +20,10 @@ export default function Header() {
           </Link>
 
           {/* Botón Reservar */}
-          <Link
-            href="/reservar"
+          <a
+            href="https://salex.sv"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 hover:bg-bosque/70 bg-black/45 border border-dorado/30 text-dorado font-semibold text-sm sm:text-base rounded-md transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             <Image
@@ -32,7 +34,7 @@ export default function Header() {
               className="w-4 h-4 sm:w-5 sm:h-5"
             />
             <span>Reservar</span>
-          </Link>
+          </a>
         </div>
       </div>
     </header>
