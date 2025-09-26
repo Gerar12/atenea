@@ -1,7 +1,6 @@
 <div align="center">
   <img src="https://res.cloudinary.com/dewy8qqaf/image/upload/v1758754241/logo_d7bdvf.png" alt="Atenea Logo" width="400" />
 
-  # **Atenea**
   ### Página Oficial del Proyecto
 
   [![Desarrollado por](https://img.shields.io/badge/Desarrollado%20por-Salex%20Corp-blue)](https://salexcorp.com)
