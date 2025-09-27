@@ -120,7 +120,7 @@ export default function Hero() {
           animation: fade-in 0.3s ease-out;
         }
       `}</style>
-      <section className="relative h-auto md:h-[600px] lg:h-[700px] xl:h-[750px] flex items-center justify-center overflow-hidden mt-20 md:mt-24 lg:mt-28 xl:mt-32 px-4">
+      <section className="relative h-auto md:h-[600px] lg:h-[700px] xl:h-[750px] flex items-center justify-center overflow-hidden pt-16 sm:pt-20 px-4">
         {/* Split layout */}
         <div className="flex flex-col lg:flex-row w-full h-full max-w-[1600px] mx-auto overflow-hidden">
 

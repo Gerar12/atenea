@@ -2,12 +2,12 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <div className="fixed bottom-4 left-0 right-0 flex justify-center z-40 pointer-events-none">
+    <div className="w-full flex justify-center py-4 mt-auto">
       <a
         href="https://salex.sv"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 hover:opacity-80 transition-opacity pointer-events-auto"
+        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
       >
         <span className="text-sm text-marfil/40">Powered by</span>
         <Image
