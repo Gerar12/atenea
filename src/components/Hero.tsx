@@ -120,7 +120,7 @@ export default function Hero() {
           animation: fade-in 0.3s ease-out;
         }
       `}</style>
-      <section className="relative h-auto md:h-[600px] lg:h-[700px] xl:h-[750px] flex items-center justify-center overflow-hidden pt-16 sm:pt-20 px-4">
+      <section className="relative h-auto md:h-[600px] lg:h-[800px] xl:h-[900px] flex items-center justify-center overflow-hidden pt-16 sm:pt-20 lg:pt-32 xl:pt-40 px-4">
         {/* Split layout */}
         <div className="flex flex-col lg:flex-row w-full h-full max-w-[1600px] mx-auto overflow-hidden">
 
@@ -137,8 +137,8 @@ export default function Hero() {
               </h1>
 
               {/* Descripción minimalista */}
-              <p className="text-xl lg:text-2xl xl:text-3xl text-marfil/80 mb-8 font-light leading-relaxed">
-                Un enclave único donde la naturaleza se convierte en tu mayor lujo.
+              <p className="text-base lg:text-lg xl:text-xl text-marfil/80 mb-8 font-light leading-relaxed">
+                Un concepto único en el salvador. Experimenta un espacio diferente frente al manglar y vive la emoción de sumergirte en la primera laguna tipo Cenote de El Salvador. Se parte de uno de los proyectos más grandes y con mayor oportunidad de inversión en el país.
               </p>
 
               {/* Badge Próximamente */}
