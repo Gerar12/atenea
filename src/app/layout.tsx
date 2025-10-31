@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 import { Providers } from "./providers";
 
 const montserrat = Montserrat({
@@ -34,6 +35,7 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <CookieBanner />
         </Providers>
       </body>
     </html>

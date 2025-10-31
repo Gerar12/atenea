@@ -17,6 +17,7 @@ export default function Hero() {
   const [subscribed, setSubscribed] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [privacyAccepted, setPrivacyAccepted] = useState(false)
   const totalSlides = images.length
 
   const showSlide = (index: number) => {
@@ -48,7 +49,7 @@ export default function Hero() {
 
   const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault()
-    if (email && !isLoading) {
+    if (email && privacyAccepted && !isLoading) {
       setIsLoading(true)
       setErrorMessage('') // Limpiar mensajes de error previos
       try {
@@ -73,6 +74,7 @@ export default function Hero() {
             setTimeout(() => {
               setSubscribed(false)
               setEmail('')
+              setPrivacyAccepted(false)
             }, 3000)
           }
         }
@@ -166,33 +168,66 @@ export default function Hero() {
                     {errorMessage}
                   </div>
                 ) : (
-                  <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md">
-                    <input
-                      type="email"
-                      placeholder="Tu correo electrónico"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 px-6 py-3 bg-bosque/50 border border-dorado/30 rounded-md text-marfil placeholder-marfil/40 focus:outline-none focus:border-dorado focus:ring-1 focus:ring-dorado/30 transition-all disabled:opacity-50"
-                      required
-                      disabled={isLoading}
-                    />
-                    <button
-                      type="submit"
-                      className="px-8 py-3 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-dorado flex items-center justify-center gap-2 min-w-[160px]"
-                      disabled={isLoading}
-                    >
-                      {isLoading ? (
-                        <>
-                          <svg className="animate-spin h-5 w-5 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          ENVIANDO...
-                        </>
-                      ) : (
-                        'NOTIFICARME'
-                      )}
-                    </button>
+                  <form onSubmit={handleSubscribe} className="flex flex-col gap-3 max-w-md">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <input
+                        type="email"
+                        placeholder="Tu correo electrónico"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="flex-1 px-6 py-3 bg-bosque/50 border border-dorado/30 rounded-md text-marfil placeholder-marfil/40 focus:outline-none focus:border-dorado focus:ring-1 focus:ring-dorado/30 transition-all disabled:opacity-50"
+                        required
+                        disabled={isLoading}
+                      />
+                      <button
+                        type="submit"
+                        className="px-8 py-3 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-md disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-dorado flex items-center justify-center gap-2 min-w-[160px]"
+                        disabled={isLoading || !privacyAccepted}
+                      >
+                        {isLoading ? (
+                          <>
+                            <svg className="animate-spin h-5 w-5 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            ENVIANDO...
+                          </>
+                        ) : (
+                          'NOTIFICARME'
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Checkbox de consentimiento de privacidad */}
+                    <label className="flex items-center gap-3 cursor-pointer group mt-1">
+                      <div className="relative flex-shrink-0">
+                        <input
+                          type="checkbox"
+                          checked={privacyAccepted}
+                          onChange={(e) => setPrivacyAccepted(e.target.checked)}
+                          className="peer sr-only"
+                          required
+                        />
+                        <div className="w-5 h-5 border-2 border-dorado/40 rounded bg-bosque/30 peer-checked:bg-dorado peer-checked:border-dorado transition-all duration-300 flex items-center justify-center group-hover:border-dorado/60">
+                          {privacyAccepted && (
+                            <svg className="w-3.5 h-3.5 text-bosque" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+                      <span className="text-xs text-marfil/80 leading-relaxed group-hover:text-marfil transition-colors">
+                        He leído y acepto la{' '}
+                        <Link
+                          href="/politica-de-privacidad"
+                          className="text-dorado hover:text-dorado/80 underline decoration-dorado/30 hover:decoration-dorado/60 transition-all"
+                          target="_blank"
+                        >
+                          Política de Privacidad
+                        </Link>
+                        .
+                      </span>
+                    </label>
                   </form>
                 )}
               </div>
