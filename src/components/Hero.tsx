@@ -288,7 +288,7 @@ export default function Hero() {
                           src={img}
                           alt={`Vista del proyecto ${index + 1}`}
                           fill
-                          className="object-cover object-center rounded-2xl brightness-50"
+                          className="object-cover object-center rounded-2xl brightness-90"
                           priority={index === 0}
                         />
                       </div>
