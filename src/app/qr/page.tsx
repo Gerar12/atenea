@@ -49,8 +49,8 @@ export default function QRPage() {
           text: '¡Te invitamos a nuestro evento exclusivo! Regístrate aquí:',
           url: invitationUrl
         })
-      } catch (error) {
-        console.log('Error compartiendo:', error)
+      } catch {
+        // Error al compartir silenciado
       }
     } else {
       // Copiar al portapapeles si no hay API de share

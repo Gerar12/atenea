@@ -1,0 +1,27 @@
+{
+  "name": "Residencial Atenea - Lotificación Premium Costa del Sol",
+  "short_name": "Residencial Atenea",
+  "description": "Lotificación exclusiva en Costa del Sol, El Salvador. Terrenos frente al manglar con laguna tipo cenote y amenidades de lujo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2e1a",
+  "theme_color": "#c9a227",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es-SV",
+  "categories": ["real estate", "business"],
+  "icons": [
+    {
+      "src": "/a.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -454,7 +454,6 @@ export async function sendWelcomeEmail(email: string) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Correo enviado exitosamente:', info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
     console.error('Error al enviar correo:', error);
@@ -473,7 +472,6 @@ export async function sendGuestConfirmationEmail(email: string, name: string) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Correo de confirmación enviado:', info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
     console.error('Error al enviar correo de confirmación:', error);
