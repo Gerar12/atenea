@@ -5,8 +5,28 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const images = [
-  "https://res.cloudinary.com/dewy8qqaf/image/upload/f_auto,q_auto/v1758579860/2_wfwkmq.png",
-  "https://res.cloudinary.com/dewy8qqaf/image/upload/f_auto,q_auto/v1758591182/Enscape_2025-09-22-12-05-49_optimizada_astsfg.jpg"
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895546/renders/10.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895553/renders/11.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895566/renders/12.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895575/renders/13.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895582/renders/14.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895588/renders/15.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895596/renders/16.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895603/renders/17.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895610/renders/18.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895616/renders/19.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895622/renders/20.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895629/renders/21.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895636/renders/22.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895646/renders/24.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895653/renders/27.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895659/renders/28.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895667/renders/29.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895676/renders/3_1.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895681/renders/4_1.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895689/renders/5_1.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895696/renders/8.jpg",
+  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895704/renders/9.jpg"
 ]
 
 export default function Hero() {

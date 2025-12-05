@@ -4,7 +4,9 @@ import PaymentMethods from '@/components/PaymentMethods'
 import ConstructionRegime from '@/components/ConstructionRegime'
 import HouseModels from '@/components/HouseModels'
 import HomeMap from '@/components/HomeMap'
+import Amenities from '@/components/Amenities'
 import Location from '@/components/Location'
+import Gallery from '@/components/Gallery'
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
       <ConstructionRegime />
       <HouseModels />
       <HomeMap />
+      <Amenities />
       <Location />
+      <Gallery />
     </>
   )
 }
