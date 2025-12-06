@@ -1,8 +1,19 @@
 'use client'
 
-import { useState, useEffect, FormEvent } from 'react'
+import { useState, useEffect, useCallback, useRef, FormEvent } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+import { EmblaCarouselType, EmblaEventType } from 'embla-carousel'
+import { NextButton, PrevButton, useCarouselButtons } from './ui/carousel-button'
+import { CarouselIndicator, useCarouselIndicator } from './ui/carousel-indicator'
+
+const TWEEN_FACTOR_BASE = 2.5
+const MAX_SCALE = 0.85
+
+const numberWithinRange = (number: number, min: number, max: number): number =>
+  Math.min(Math.max(number, min), max)
 
 const images = [
   "https://res.cloudinary.com/dftway9sm/image/upload/v1764895546/renders/10.jpg",
@@ -30,7 +41,6 @@ const images = [
 ]
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [email, setEmail] = useState('')
@@ -38,19 +48,24 @@ export default function Hero() {
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [privacyAccepted, setPrivacyAccepted] = useState(false)
-  const totalSlides = images.length
 
-  const showSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: 'center',
+      slidesToScroll: 1,
+      containScroll: 'trimSnaps',
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  )
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
+  const tweenFactor = useRef(0)
+  const tweenNodes = useRef<HTMLElement[]>([])
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
+  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
+    useCarouselButtons(emblaApi)
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useCarouselIndicator(emblaApi)
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
@@ -66,6 +81,79 @@ export default function Hero() {
   const showLightboxImage = (index: number) => {
     setLightboxIndex((index + images.length) % images.length)
   }
+
+  const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
+    tweenNodes.current = emblaApi.slideNodes().map((slideNode: HTMLElement) => {
+      return slideNode.querySelector('.hero-slide-card') as HTMLElement
+    })
+  }, [])
+
+  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
+  }, [])
+
+  const tweenScale = useCallback(
+    (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+      const engine = emblaApi.internalEngine()
+      const scrollProgress = emblaApi.scrollProgress()
+      const slidesInView = emblaApi.slidesInView()
+      const isScrollEvent = eventName === 'scroll'
+
+      emblaApi
+        .scrollSnapList()
+        .forEach((scrollSnap: number, snapIndex: number) => {
+          let diffToTarget = scrollSnap - scrollProgress
+          const slidesInSnap = engine.slideRegistry[snapIndex]
+
+          slidesInSnap.forEach((slideIndex: number) => {
+            if (isScrollEvent && !slidesInView.includes(slideIndex)) return
+
+            if (engine.options.loop) {
+              engine.slideLooper.loopPoints.forEach((loopItem: any) => {
+                const target = loopItem.target()
+                if (slideIndex === loopItem.index && target !== 0) {
+                  const sign = Math.sign(target)
+                  if (sign === -1) {
+                    diffToTarget = scrollSnap - (1 + scrollProgress)
+                  }
+                  if (sign === 1) {
+                    diffToTarget = scrollSnap + (1 - scrollProgress)
+                  }
+                }
+              })
+            }
+
+            const tweenValue = Math.abs(diffToTarget * tweenFactor.current)
+            const scale = numberWithinRange(1 - tweenValue * 0.3, MAX_SCALE, 1)
+            const tweenNode = tweenNodes.current[slideIndex]
+            if (tweenNode) {
+              tweenNode.style.transform = `scale(${scale})`
+              tweenNode.style.transition = 'transform 0.3s ease-out'
+            }
+          })
+        })
+    },
+    []
+  )
+
+  useEffect(() => {
+    if (!emblaApi) return
+    setTweenNodes(emblaApi)
+    setTweenFactor(emblaApi)
+    tweenScale(emblaApi)
+    emblaApi
+      .on('reInit', setTweenNodes)
+      .on('reInit', setTweenFactor)
+      .on('reInit', tweenScale)
+      .on('scroll', tweenScale)
+    return () => {
+      emblaApi
+        .off('reInit', setTweenNodes)
+        .off('reInit', setTweenFactor)
+        .off('reInit', tweenScale)
+        .off('scroll', tweenScale)
+    }
+  }, [emblaApi, setTweenFactor, setTweenNodes, tweenScale])
 
   const handleSubscribe = async (e: FormEvent) => {
     e.preventDefault()
@@ -110,11 +198,6 @@ export default function Hero() {
     }
   }
 
-  // Auto-play carousel
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Handle ESC key for lightbox
   useEffect(() => {
@@ -262,99 +345,71 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Lado derecho - Imagen (50%) - En móvil aparece primero */}
-          <div className="lg:w-1/2 relative h-[450px] sm:h-[500px] lg:h-full bg-bosque order-1 lg:order-2">
-            {/* Contenedor con borde decorativo */}
-            <div className="absolute inset-4 sm:inset-6 lg:inset-16">
-              {/* Marco dorado con bordes redondeados */}
-              <div className="absolute inset-0 border-2 border-dorado/40 rounded-3xl"></div>
-
-              {/* Carousel de imágenes */}
-              <div className="relative w-full h-full p-3 overflow-hidden rounded-3xl">
-                {/* Contenedor de slides */}
-                <div className="carousel-container relative w-full h-full">
+          {/* Lado derecho - Carrusel estilo Embla (50%) - En móvil aparece primero */}
+          <div className="lg:w-1/2 relative h-[450px] sm:h-[500px] lg:h-full bg-bosque order-1 lg:order-2 flex items-center">
+            <div className="relative w-full overflow-hidden py-8 px-4 sm:px-8 lg:px-12">
+              {/* Carrusel Embla - Una sola imagen visible */}
+              <div className="overflow-hidden rounded-2xl" ref={emblaRef}>
+                <div className="flex">
                   {images.map((img, index) => (
                     <div
                       key={index}
-                      className={`carousel-slide absolute inset-0 transition-opacity duration-1000 ${
-                        index === currentSlide ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className="flex-[0_0_100%] min-w-0"
                     >
                       <div
-                        className="relative w-full h-full cursor-zoom-in"
+                        className="hero-slide-card relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-2xl cursor-zoom-in group"
                         onClick={() => openLightbox(index)}
                       >
                         <Image
                           src={img}
                           alt={`Vista del proyecto ${index + 1}`}
                           fill
-                          className="object-cover object-center rounded-2xl brightness-90"
+                          className="object-cover object-center brightness-95 group-hover:scale-105 transition-transform duration-500"
                           priority={index === 0}
                         />
+                        {/* Logo marca de agua */}
+                        <div className="absolute top-4 right-4 z-10">
+                          <Image
+                            src="/a.svg"
+                            alt="Atenea"
+                            width={60}
+                            height={60}
+                            className="opacity-70"
+                          />
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
 
-                {/* Logo a.svg en esquina superior derecha */}
-                <div className="absolute top-6 right-6 z-10">
-                  <Image
-                    src="/a.svg"
-                    alt="Logo"
-                    width={80}
-                    height={80}
-                    className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 opacity-90 drop-shadow-2xl"
+              {/* Botones de navegación */}
+              <PrevButton
+                onClick={onPrevButtonClick}
+                disabled={prevBtnDisabled}
+                className="absolute left-6 sm:left-10 lg:left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 shadow-xl text-dorado hover:bg-dorado hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center border-2 border-dorado/20"
+              />
+              <NextButton
+                onClick={onNextButtonClick}
+                disabled={nextBtnDisabled}
+                className="absolute right-6 sm:right-10 lg:right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 shadow-xl text-dorado hover:bg-dorado hover:text-white transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center border-2 border-dorado/20"
+              />
+
+              {/* Indicadores */}
+              <div className="flex justify-center gap-2 mt-6">
+                {scrollSnaps.map((_, index) => (
+                  <CarouselIndicator
+                    key={index}
+                    onClick={() => onDotButtonClick(index)}
+                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                      index === selectedIndex
+                        ? 'bg-dorado w-6 sm:w-8'
+                        : 'bg-marfil/50 hover:bg-marfil/70'
+                    }`}
                   />
-                </div>
-
-                {/* Indicadores del carousel */}
-                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                  {images.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`carousel-dot w-2 h-2 rounded-full transition-all ${
-                        index === currentSlide ? 'bg-dorado w-8' : 'bg-marfil/50'
-                      }`}
-                      onClick={() => showSlide(index)}
-                      aria-label={`Ir a imagen ${index + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Controles de navegación */}
-                <button
-                  className="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-marfil p-3 rounded-full transition-all z-10"
-                  onClick={prevSlide}
-                  aria-label="Imagen anterior"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  className="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-marfil p-3 rounded-full transition-all z-10"
-                  onClick={nextSlide}
-                  aria-label="Siguiente imagen"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
-
-                {/* Decoración elegante en esquinas */}
-                <div className="absolute top-3 left-3 w-20 h-20">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-dorado to-transparent"></div>
-                  <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-dorado to-transparent"></div>
-                </div>
-                <div className="absolute bottom-3 right-3 w-20 h-20">
-                  <div className="absolute bottom-0 right-0 w-full h-px bg-gradient-to-l from-dorado to-transparent"></div>
-                  <div className="absolute bottom-0 right-0 h-full w-px bg-gradient-to-t from-dorado to-transparent"></div>
-                </div>
+                ))}
               </div>
             </div>
-
-            {/* Overlay sutil */}
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-bosque/10 pointer-events-none"></div>
           </div>
         </div>
       </section>

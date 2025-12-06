@@ -1,7 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import PaymentMethods from '@/components/PaymentMethods'
-import ConstructionRegime from '@/components/ConstructionRegime'
 import HouseModels from '@/components/HouseModels'
 import HomeMap from '@/components/HomeMap'
 import Amenities from '@/components/Amenities'
@@ -14,7 +13,6 @@ export default function Home() {
       <Header />
       <Hero />
       <PaymentMethods />
-      <ConstructionRegime />
       <HouseModels />
       <HomeMap />
       <Amenities />
