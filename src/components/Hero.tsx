@@ -414,57 +414,101 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Modal Lightbox */}
+      {/* Modal Lightbox - Optimizado para móvil vertical */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black flex flex-col"
           onClick={closeLightbox}
         >
-          {/* Botón cerrar */}
-          <button
-            className="absolute top-4 right-4 text-white hover:text-dorado transition-colors z-[110]"
-            onClick={closeLightbox}
-            aria-label="Cerrar imagen"
-          >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
+          {/* Header con botón cerrar y contador */}
+          <div className="flex items-center justify-between p-4 sm:p-6">
+            <div className="text-white/70 text-sm sm:text-base font-medium">
+              {lightboxIndex + 1} / {images.length}
+            </div>
+            <button
+              className="text-white/70 hover:text-white transition-colors p-2"
+              onClick={closeLightbox}
+              aria-label="Cerrar imagen"
+            >
+              <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
 
-          {/* Contenedor de imagen */}
+          {/* Contenedor de imagen - Ocupa todo el espacio disponible */}
           <div
-            className="relative max-w-7xl mx-auto w-full h-full flex items-center justify-center"
+            className="flex-1 relative flex items-center justify-center px-2 sm:px-8 pb-20 sm:pb-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-full max-h-[90vh]">
+            {/* Imagen adaptativa - Vertical en móvil */}
+            <div className="relative w-full h-full max-w-5xl mx-auto">
               <Image
                 src={images[lightboxIndex]}
                 alt="Vista ampliada del proyecto"
                 fill
-                className="object-contain rounded-lg"
+                className="object-contain"
+                sizes="100vw"
+                priority
               />
             </div>
 
-            {/* Controles del lightbox */}
+            {/* Logo marca de agua */}
+            <div className="absolute top-4 right-4 sm:top-8 sm:right-12 z-10 opacity-50">
+              <Image
+                src="/a.svg"
+                alt="Atenea"
+                width={50}
+                height={50}
+                className="w-10 h-10 sm:w-14 sm:h-14"
+              />
+            </div>
+
+            {/* Controles del lightbox - Posicionados a los lados */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              onClick={() => showLightboxImage(lightboxIndex - 1)}
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 sm:p-4 rounded-full transition-all"
+              onClick={(e) => {
+                e.stopPropagation()
+                showLightboxImage(lightboxIndex - 1)
+              }}
               aria-label="Imagen anterior"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"/>
               </svg>
             </button>
 
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all"
-              onClick={() => showLightboxImage(lightboxIndex + 1)}
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 sm:p-4 rounded-full transition-all"
+              onClick={(e) => {
+                e.stopPropagation()
+                showLightboxImage(lightboxIndex + 1)
+              }}
               aria-label="Siguiente imagen"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
+          </div>
+
+          {/* Indicadores de navegación - Abajo en móvil */}
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-1.5 sm:gap-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setLightboxIndex(index)
+                }}
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                  index === lightboxIndex
+                    ? 'bg-dorado w-6 sm:w-8'
+                    : 'bg-white/40 hover:bg-white/60 w-1.5 sm:w-2'
+                }`}
+                aria-label={`Ver imagen ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       )}
