@@ -5,73 +5,111 @@ import { useState } from 'react'
 const amenities = [
   {
     id: 1,
-    title: 'Laguna de agua salada',
-    description: 'Laguna privada con agua salada cristalina',
+    title: 'Laguna turquesa',
+    description: 'Laguna cristalina con agua turquesa',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+        {/* Laguna con estrellas */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3l1.5 3.5L17 8l-3.5 1.5L12 13l-1.5-3.5L7 8l3.5-1.5L12 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 10l.75 1.75L7.5 12.5l-1.75.75L5 15l-.75-1.75L2.5 12.5l1.75-.75L5 10z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 10l.75 1.75 1.75.75-1.75.75L19 15l-.75-1.75-1.75-.75 1.75-.75L19 10z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 18c2 0 3 1 5 1s3-1 5-1 3 1 5 1 3-1 5-1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 21c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
       </svg>
     ),
   },
   {
     id: 2,
-    title: 'Zonas de playa internas',
+    title: 'Playas internas',
     description: 'Playas privadas dentro del complejo',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        {/* Sombrilla de playa */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3C8 3 5 6 5 9h14c0-3-3-6-7-6z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3v18" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 9c-2-2-4-3-7-3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 9c2-2 4-3 7-3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 21h12" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 18c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
       </svg>
     ),
   },
   {
     id: 3,
     title: 'Zona exclusiva para nadar',
-    description: 'Area segura y vigilada para natacion',
+    description: 'Área segura y vigilada para natación',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        {/* Persona nadando */}
+        <circle cx="19" cy="6" r="2.5" strokeWidth="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 17c1.5 0 2.5 1 4 1s2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 21c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-4 2-6-1-5 3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 10l2 4" />
       </svg>
     ),
   },
   {
     id: 4,
     title: 'Kayak y Stand-up Paddle',
-    description: 'Zona exclusiva para deportes acuaticos',
+    description: 'Zona exclusiva para deportes acuáticos',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        {/* Persona surfeando/paddle */}
+        <circle cx="12" cy="4" r="2" strokeWidth="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6v5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 8l3 3 3-3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 11l4 4 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 17c4-2 8-2 16 0" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2 20c2 0 3 1 5 1s3-1 5-1 3 1 5 1 3-1 5-1" />
       </svg>
     ),
   },
   {
     id: 5,
-    title: 'Areas de BBQ',
-    description: 'Espacios equipados repartidos por el complejo',
+    title: 'Áreas de BBQ',
+    description: 'Espacios equipados para asados',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
+        {/* Parrilla BBQ */}
+        <ellipse cx="12" cy="10" rx="8" ry="3" strokeWidth="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 10v4c0 1.5 3.5 3 8 3s8-1.5 8-3v-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 17v4M16 17v4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 21h12" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 6c0-1 .5-2 1-2.5M12 5c0-1.5.5-2.5 1-3M16 6c0-1 .5-2 1-2.5" />
       </svg>
     ),
   },
   {
     id: 6,
-    title: 'Areas recreativas para niños',
+    title: 'Áreas recreativas para niños',
     description: 'Zonas de juego seguras y divertidas',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        {/* Columpio */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 4h16" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 4v2M18 4v2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 4v10M16 4v10" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 14h4M14 14h4" />
+        <circle cx="8" cy="17" r="1.5" strokeWidth="1.5" />
+        <circle cx="16" cy="17" r="1.5" strokeWidth="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 18.5v2M16 18.5v2" />
       </svg>
     ),
   },
   {
     id: 7,
-    title: 'Areas de descanso y miradores',
-    description: 'Espacios para relajarse con vistas panoramicas',
+    title: 'Áreas de descanso',
+    description: 'Espacios para relajarse con vistas',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        {/* Silla de playa */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 20l4-12h10l4 12" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 8l5 6 5-6" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 14h14" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 20h2M18 20h2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8V5" />
+        <circle cx="12" cy="3.5" r="1.5" strokeWidth="1.5" />
       </svg>
     ),
   },
@@ -87,41 +125,62 @@ const amenities = [
   },
   {
     id: 9,
-    title: 'Isla con amenidades',
-    description: 'Espacio exclusivo para el descanso',
+    title: 'Islas con amenidades',
+    description: 'Cabañas playeras exclusivas',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        {/* Cabaña playera */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3l8 6H4l8-6z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 9v8h12V9" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 17v-4h4v4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2 20c2 0 3 1 5 1s3-1 5-1 3 1 5 1 3-1 5-1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 17h2M18 17h2" />
       </svg>
     ),
   },
   {
     id: 10,
     title: 'Zonas verdes y senderos',
-    description: 'Senderos naturales para caminar y disfrutar',
+    description: 'Senderos naturales para caminar',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        {/* Árboles */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 21v-5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 16c-2.5 0-4-2-4-4s2-4 4-4 4 2 4 4-1.5 4-4 4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 21v-7" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 14c-3 0-5-2.5-5-5s2.5-5 5-5 5 2.5 5 5-2 5-5 5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 21h18" />
       </svg>
     ),
   },
   {
     id: 11,
     title: 'Canchas deportivas',
-    description: 'Canchas multiuso y de tenis',
+    description: 'Canchas multiuso para fútbol y más',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        {/* Balón de fútbol */}
+        <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3l2 4-2 2-2-2 2-4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 21l2-4-2-2-2 2 2 4z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 12l4 2 2-2-2-2-4 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 12l-4 2-2-2 2-2 4 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 9l2 3 2-3M10 15l2-3 2 3" />
       </svg>
     ),
   },
   {
     id: 12,
-    title: 'Marina',
+    title: 'Muelle',
     description: 'Para embarcaciones pequeñas',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+        {/* Muelle */}
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 10h16" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 10v7M10 10v7M14 10v7M18 10v7" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2 17c2 0 3 1 5 1s3-1 5-1 3 1 5 1 3-1 5-1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2 21c2 0 3-1 5-1s3 1 5 1 3-1 5-1 3 1 5 1" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20 6v4M20 4l2 2-2 2" />
       </svg>
     ),
   },

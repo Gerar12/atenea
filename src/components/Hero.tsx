@@ -243,7 +243,7 @@ export default function Hero() {
 
               {/* Descripción minimalista */}
               <p className="text-base lg:text-lg xl:text-xl text-marfil/80 mb-8 font-light leading-relaxed">
-                Un concepto único en el salvador. Experimenta un espacio diferente frente al manglar y vive la emoción de sumergirte en la primera laguna tipo Cenote de El Salvador. Se parte de uno de los proyectos más grandes y con mayor oportunidad de inversión en el país.
+                Un concepto único en El Salvador. Experimenta un espacio diferente con una laguna turquesa, paraíso exclusivo y lujo sin límites. Sé parte de uno de los proyectos más grandes y con mayor oportunidad de inversión en el país.
               </p>
 
               {/* Badge Próximamente */}

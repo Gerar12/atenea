@@ -3,29 +3,47 @@ export default function PaymentMethods() {
     {
       name: "Tarjetas",
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
         </svg>
       ),
-      description: "Visa, Mastercard, American Express"
+      description: "Visa, Mastercard, Amex"
     },
     {
       name: "Transferencia",
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
         </svg>
       ),
-      description: "Transferencia bancaria directa"
+      description: "Bancaria directa"
     },
     {
       name: "Bitcoin",
       icon: (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-10 h-10 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
       ),
-      description: "Criptomonedas aceptadas"
+      description: "Criptomonedas"
+    },
+    {
+      name: "Cheque",
+      icon: (
+        <svg className="w-10 h-10 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+      ),
+      description: "Certificados"
+    },
+    {
+      name: "Efectivo",
+      icon: (
+        <svg className="w-10 h-10 xl:w-8 xl:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+        </svg>
+      ),
+      description: "Pago directo"
     }
   ]
 
@@ -44,15 +62,15 @@ export default function PaymentMethods() {
         </div>
 
         {/* Grid de métodos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 lg:gap-6">
           {methods.map((method, index) => (
             <div
               key={index}
-              className="group relative bg-bosque border-2 border-dorado/30 rounded-2xl p-8 lg:p-10 hover:border-dorado transition-all duration-500 hover:shadow-2xl hover:shadow-dorado/20"
+              className="group relative bg-bosque border-2 border-dorado/30 rounded-2xl p-6 xl:p-5 hover:border-dorado transition-all duration-500 hover:shadow-2xl hover:shadow-dorado/20"
             >
               {/* Decoración superior */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="bg-bosque border-2 border-dorado/30 group-hover:border-dorado rounded-full p-4 transition-all duration-500">
+                <div className="bg-bosque border-2 border-dorado/30 group-hover:border-dorado rounded-full p-3 xl:p-2.5 transition-all duration-500">
                   <div className="text-dorado group-hover:scale-110 transition-transform duration-500">
                     {method.icon}
                   </div>
@@ -60,11 +78,11 @@ export default function PaymentMethods() {
               </div>
 
               {/* Contenido */}
-              <div className="pt-12 text-center">
-                <h3 className="text-2xl lg:text-3xl font-bold text-marfil mb-4 group-hover:text-dorado transition-colors duration-300">
+              <div className="pt-10 text-center">
+                <h3 className="text-xl lg:text-2xl xl:text-lg font-bold text-marfil mb-3 group-hover:text-dorado transition-colors duration-300">
                   {method.name}
                 </h3>
-                <p className="text-marfil/60 text-sm lg:text-base">
+                <p className="text-marfil/60 text-xs lg:text-sm xl:text-xs">
                   {method.description}
                 </p>
               </div>
