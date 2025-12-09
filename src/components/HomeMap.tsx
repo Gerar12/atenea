@@ -27,8 +27,8 @@ export default function HomeMap() {
               VER PLANO EN LA WEB
             </a>
             <a
-              href="/atenea.pdf"
-              download="Plano_Residencial_Atenea.pdf"
+              href="/ATENEA solo lotes.pdf"
+              download="ATENEA_solo_lotes.pdf"
               className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

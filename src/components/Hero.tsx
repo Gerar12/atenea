@@ -243,7 +243,10 @@ export default function Hero() {
 
               {/* Descripción minimalista */}
               <p className="text-base lg:text-lg xl:text-xl text-marfil/80 mb-8 font-light leading-relaxed">
-                Un concepto único en El Salvador. Experimenta un espacio diferente con una laguna turquesa, paraíso exclusivo y lujo sin límites. Sé parte de uno de los proyectos más grandes y con mayor oportunidad de inversión en el país.
+                Un concepto único en El Salvador. Experimenta un espacio diferente con una laguna turquesa, con playas privadas, espacios deportivos caminos peatonales y una futura marina al estero*. Sé parte de un paraíso exclusivo en un proyecto innovador y con gran oportunidad de inversión en el país.
+              </p>
+              <p className="text-xs text-marfil/50 mb-4 italic">
+                *Pendiente aprobación de Medio Ambiente
               </p>
 
               {/* Badge Próximamente */}

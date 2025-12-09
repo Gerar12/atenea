@@ -25,7 +25,7 @@ export default function Location() {
               Ubicada en <span className="text-dorado font-medium">Blvd. Costa del Sol km 65, San Luis la Herradura</span>
             </p>
             <p className="text-lg lg:text-xl text-marfil/70 leading-relaxed">
-              Se parte del futuro costero en El Salvador, en una de las zonas más exclusivas y privadas del país.
+              Sé parte de un proyecto exclusivo y privado en una de las zonas con más desarrollo económico en El Salvador. No hay espacios de esta magnitud en Costa del Sol para repetir un proyecto como éste, creando una oportunidad de demanda y gran apreciación a futuro.
             </p>
 
             {/* Decoraciones */}

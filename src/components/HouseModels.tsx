@@ -394,7 +394,7 @@ export default function HouseModels() {
             Nuestros Modelos
           </h2>
           <p className="text-lg text-bosque/70 max-w-2xl mx-auto">
-            Descubre las opciones de vivienda diseñadas especialmente para ti y tu familia
+            Presentamos cuatro opciones de viviendas diseñadas especialmente para ti y tu familia, con permisología avanzada y costos optimizados. Sin embargo, si prefieres diseñar y construir tu propia vivienda eso también es posible.
           </p>
         </div>
 

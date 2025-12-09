@@ -156,7 +156,7 @@ const amenities = [
   {
     id: 11,
     title: 'Canchas deportivas',
-    description: 'Canchas multiuso para fútbol y más',
+    description: 'Canchas multiuso para basket, tenis, pickleball, futbolito, etc.',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         {/* Balón de fútbol */}
@@ -171,8 +171,8 @@ const amenities = [
   },
   {
     id: 12,
-    title: 'Muelle',
-    description: 'Para embarcaciones pequeñas',
+    title: 'Marina',
+    description: 'Rampa y muelle para embarcaciones pequeñas',
     icon: (
       <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         {/* Muelle */}
@@ -198,7 +198,7 @@ export default function Amenities() {
             Amenidades del Complejo
           </h2>
           <p className="text-lg text-bosque/70 max-w-2xl mx-auto">
-            Disfruta de un estilo de vida unico con instalaciones de primera clase rodeadas de naturaleza
+            Disfruta de un estilo de vida único con instalaciones de primera clase rodeadas de naturaleza
           </p>
         </div>
 
