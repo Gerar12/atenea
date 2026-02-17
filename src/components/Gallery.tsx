@@ -76,28 +76,35 @@ function GalleryImage({
 }
 
 const galleryImages = [
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895546/renders/10.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895553/renders/11.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895566/renders/12.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895575/renders/13.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895582/renders/14.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895588/renders/15.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895596/renders/16.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895603/renders/17.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895610/renders/18.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895616/renders/19.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895622/renders/20.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895629/renders/21.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895636/renders/22.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895646/renders/24.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895653/renders/27.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895659/renders/28.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895667/renders/29.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895676/renders/3_1.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895681/renders/4_1.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895689/renders/5_1.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895696/renders/8.jpg",
-  "https://res.cloudinary.com/dftway9sm/image/upload/v1764895704/renders/9.jpg"
+  "/renders/1.webp",
+  "/renders/2.webp",
+  "/renders/3.webp",
+  "/renders/4.webp",
+  "/renders/5.webp",
+  "/renders/6.webp",
+  "/renders/7.webp",
+  "/renders/8.webp",
+  "/renders/9.webp",
+  "/renders/10.webp",
+  "/renders/11.webp",
+  "/renders/12.webp",
+  "/renders/13.webp",
+  "/renders/14.webp",
+  "/renders/15.webp",
+  "/renders/16.webp",
+  "/renders/17.webp",
+  "/renders/18.webp",
+  "/renders/19.webp",
+  "/renders/20.webp",
+  "/renders/21.webp",
+  "/renders/22.webp",
+  "/renders/23.webp",
+  "/renders/24.webp",
+  "/renders/25.webp",
+  "/renders/26.webp",
+  "/renders/27.webp",
+  "/renders/28.webp",
+  "/renders/29.webp",
 ]
 
 export default function Gallery() {
@@ -249,10 +256,33 @@ export default function Gallery() {
               <GalleryImage img={galleryImages[19]} index={19} onClick={openLightbox} />
             </div>
 
-            {/* Fila 7: 2 últimas centradas */}
-            <div className="grid grid-cols-2 gap-3 h-[200px] md:h-[300px] max-w-4xl mx-auto w-full">
+            {/* Fila 7: 2 pequeñas apiladas + 1 grande */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 h-[300px] md:h-[400px]">
+              <div className="hidden md:grid grid-rows-2 gap-3">
+                <GalleryImage img={galleryImages[20]} index={20} onClick={openLightbox} />
+                <GalleryImage img={galleryImages[21]} index={21} onClick={openLightbox} />
+              </div>
+              <GalleryImage img={galleryImages[22]} index={22} onClick={openLightbox} className="col-span-2 md:col-span-2" featured />
+            </div>
+
+            {/* Fila 7.5 móvil */}
+            <div className="grid grid-cols-2 gap-3 h-[150px] md:hidden">
               <GalleryImage img={galleryImages[20]} index={20} onClick={openLightbox} />
               <GalleryImage img={galleryImages[21]} index={21} onClick={openLightbox} />
+            </div>
+
+            {/* Fila 8: 4 iguales */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 h-[150px] md:h-[200px]">
+              <GalleryImage img={galleryImages[23]} index={23} onClick={openLightbox} />
+              <GalleryImage img={galleryImages[24]} index={24} onClick={openLightbox} />
+              <GalleryImage img={galleryImages[25]} index={25} onClick={openLightbox} />
+              <GalleryImage img={galleryImages[26]} index={26} onClick={openLightbox} />
+            </div>
+
+            {/* Fila 9: 2 últimas centradas */}
+            <div className="grid grid-cols-2 gap-3 h-[200px] md:h-[300px] max-w-4xl mx-auto w-full">
+              <GalleryImage img={galleryImages[27]} index={27} onClick={openLightbox} />
+              <GalleryImage img={galleryImages[28]} index={28} onClick={openLightbox} />
             </div>
           </div>
 
