@@ -3,7 +3,6 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
-import { Providers } from "./providers";
 import { JsonLdSchema } from "@/components/JsonLd";
 
 const montserrat = Montserrat({
@@ -126,13 +125,11 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} antialiased min-h-screen flex flex-col`}
       >
-        <Providers>
           <div className="flex-grow">
             {children}
           </div>
           <Footer />
           <CookieBanner />
-        </Providers>
       </body>
     </html>
   );

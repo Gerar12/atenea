@@ -1,44 +1,20 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function QRPage() {
-  const [qrUrl, setQrUrl] = useState<string>('')
-  const [isLoading, setIsLoading] = useState(true)
   const invitationUrl = typeof window !== 'undefined'
     ? `${window.location.origin}/invitacion`
     : 'http://localhost:3000/invitacion'
 
-  useEffect(() => {
-    // Cargar el QR code con un pequeño delay para evitar el flash
-    const loadQR = () => {
-      const timestamp = Date.now()
-      setQrUrl(`/api/qr?t=${timestamp}`)
-      // Esperar a que la imagen cargue antes de quitar el loading
-      const img = document.createElement('img')
-      img.onload = () => setIsLoading(false)
-      img.src = `/api/qr?t=${timestamp}`
-    }
-    loadQR()
-  }, [])
-
-  const handleDownload = async () => {
-    try {
-      const response = await fetch('/api/qr')
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = 'qr-invitacion-atenea.png'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      window.URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error('Error descargando QR:', error)
-    }
+  const handleDownload = () => {
+    const a = document.createElement('a')
+    a.href = '/qr-invitacion-atenea.png'
+    a.download = 'qr-invitacion-atenea.png'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
   }
 
   const handleShare = async () => {
@@ -90,20 +66,11 @@ export default function QRPage() {
             {/* QR Code */}
             <div className="flex-1 flex justify-center">
               <div className="relative w-[360px] h-[450px]">
-                {isLoading ? (
-                  <div className="absolute inset-0 bg-bosque/30 rounded-xl animate-pulse flex items-center justify-center">
-                    <svg className="animate-spin h-10 w-10 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                  </div>
-                ) : (
-                  <img
-                    src={qrUrl}
-                    alt="QR Code Invitación"
-                    className="w-full h-full object-contain rounded-xl"
-                  />
-                )}
+                <img
+                  src="/qr-invitacion-atenea.png"
+                  alt="QR Code Invitación"
+                  className="w-full h-full object-contain rounded-xl"
+                />
               </div>
             </div>
 

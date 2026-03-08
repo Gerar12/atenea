@@ -1,3 +1,5 @@
+'use client'
+
 import { SessionProvider } from 'next-auth/react'
 
 export default function PanelLayout({
@@ -5,5 +7,9 @@ export default function PanelLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <SessionProvider>
+      {children}
+    </SessionProvider>
+  )
 }

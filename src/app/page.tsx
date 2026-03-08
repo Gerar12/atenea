@@ -1,3 +1,5 @@
+export const dynamic = 'force-static'
+
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import PaymentMethods from '@/components/PaymentMethods'
