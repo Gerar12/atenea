@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: "Residencial Atenea | Lotificación Premium en Costa del Sol, El Salvador",
     template: "%s | Residencial Atenea"
   },
-  description: "Lotificación exclusiva en Costa del Sol, El Salvador. Terrenos frente al manglar con laguna tipo cenote, casa club, amenidades de lujo. La mejor inversión inmobiliaria en la playa. Lotes desde $45,000.",
+  description: "Lotificación exclusiva en Costa del Sol, El Salvador. Terrenos frente al manglar con laguna tipo cenote, casa club, amenidades de lujo. La mejor inversión inmobiliaria en la playa. Contáctanos para más información.",
   keywords: [
     // Keywords principales
     "lotificación El Salvador",

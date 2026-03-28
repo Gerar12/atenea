@@ -59,11 +59,7 @@ export function JsonLdSchema() {
     ],
     offers: {
       "@type": "Offer",
-      priceCurrency: "USD",
-      price: "45000",
-      priceValidUntil: "2025-12-31",
       availability: "https://schema.org/InStock",
-      validFrom: "2024-01-01",
     },
     address: {
       "@type": "PostalAddress",

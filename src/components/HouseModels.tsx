@@ -34,7 +34,7 @@ const houseModels = [
     area: '180 m2',
     bedrooms: 3,
     bathrooms: 2.5,
-    price: 'Desde $125,000',
+    price: 'Contactar',
     features: [
       'Sala y comedor integrados',
       'Cocina moderna con isla',
@@ -66,7 +66,7 @@ const houseModels = [
     area: '200 m2',
     bedrooms: 4,
     bathrooms: 3,
-    price: 'Desde $155,000',
+    price: 'Contactar',
     features: [
       'Habitacion principal con walking closet',
       'Estudio o cuarto de servicio',
@@ -99,7 +99,7 @@ const houseModels = [
     area: '165 m2',
     bedrooms: 3,
     bathrooms: 2,
-    price: 'Desde $115,000',
+    price: 'Contactar',
     features: [
       'Diseño de un nivel',
       'Acceso directo al jardin',
@@ -130,7 +130,7 @@ const houseModels = [
     area: '220 m2',
     bedrooms: 4,
     bathrooms: 3.5,
-    price: 'Desde $185,000',
+    price: 'Contactar',
     features: [
       'Suite principal de lujo con balcon',
       'Oficina privada',
@@ -641,7 +641,7 @@ export default function HouseModels() {
 
             {/* Contenido */}
             <div className="p-5 pb-8 sm:p-6 md:p-10">
-              {/* Título y precio */}
+              {/* Título y contacto */}
               <div className="mb-5 sm:mb-6">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-bosque mb-2">
                   {currentModel.name}
@@ -649,9 +649,14 @@ export default function HouseModels() {
                 <p className="text-sm sm:text-base text-bosque/70 mb-3">
                   {currentModel.description}
                 </p>
-                <div className="text-2xl sm:text-3xl font-bold text-dorado">
-                  {currentModel.price}
-                </div>
+                <a
+                  href="https://salex.sv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-lg sm:text-xl font-bold text-dorado hover:text-dorado/80 transition-colors duration-300 underline underline-offset-4"
+                >
+                  Contactar para precio
+                </a>
               </div>
 
               {/* Características principales */}
