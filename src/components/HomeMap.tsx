@@ -6,14 +6,14 @@ export default function HomeMap() {
         <div className="text-center mb-12">
           <div className="w-20 h-1 bg-dorado mx-auto mb-8"></div>
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-light text-marfil mb-6 leading-tight">
-            Conoce tu nuevo <span className="font-bold text-dorado">hogar</span>
+            Conoce el lugar de tu nueva <span className="font-bold text-dorado">inversión</span>
           </h2>
           <p className="text-marfil/70 text-lg lg:text-xl max-w-3xl mx-auto mb-12">
             Revisa plano actualizado con ubicaciones disponibles y reserva de inmediato
           </p>
 
           {/* Botones de acción */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="https://salex.sv/lotificacion/cmgzmtbn60007qy113i0cndyr"
               target="_blank"
@@ -28,23 +28,47 @@ export default function HomeMap() {
             </a>
             <a
               href="/ATENEA solo lotes.pdf"
-              download="ATENEA_solo_lotes.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
-              DESCARGAR PLANO PDF
+              VER PLANO PDF
             </a>
             <a
               href="/Reglamento-Construccion-Atenea.pdf"
-              download="Reglamento-Construccion-Atenea.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
-              REGLAMENTO DE CONSTRUCCIÓN
+              CONSTRUCCIÓN DE VIVIENDA
+            </a>
+            <a
+              href="/Reglamento-Asociacion-Vecinos-Atenea.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-lg"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              ASOCIACIÓN DE VECINOS
+            </a>
+            <a
+              href="/Reglamento-Uso-Instalaciones-Atenea.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-dorado text-dorado hover:bg-dorado hover:text-bosque transition-all duration-500 font-medium tracking-wider rounded-lg"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              USO DE INSTALACIONES
             </a>
           </div>
         </div>
