@@ -15,7 +15,7 @@ export default function HomeMap() {
           {/* Botones de acción */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://salex.sv/lotificacion/cmgzmtbn60007qy113i0cndyr"
+              href="https://salex.sv/lotificacion/cmnyyjcib0007ph11g0k6qg15"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-dorado text-bosque hover:bg-dorado/90 transition-all duration-500 font-medium tracking-wider rounded-lg shadow-lg shadow-dorado/20"
