@@ -26,7 +26,7 @@ const faqs: FAQ[] = [
     answer: (
       <ol className="list-decimal pl-5 space-y-2">
         <li>Visite <a className="text-dorado hover:underline" href="https://www.atenea.sv">www.atenea.sv</a>, vaya a “Conoce el lugar de tu nueva inversión” y haga clic en <strong>Ver Plano</strong>.</li>
-        <li>Escoja su lote según ubicación y precio en el plano, o navegue a <a className="text-dorado hover:underline break-all" href="https://salex.sv/lotificacion/cmnyyjcib0007ph11g0k6qg15" target="_blank" rel="noopener noreferrer">salex.sv/lotificacion</a>.</li>
+        <li>Escoja su lote según ubicación y precio en el plano, o navegue a <a className="text-dorado hover:underline break-all" href="https://salex.sv/lotificacion/cmohe1yj5000fph11itoetvuo" target="_blank" rel="noopener noreferrer">salex.sv/lotificacion</a>.</li>
         <li>Contacte a Salex al <a className="text-dorado hover:underline" href="tel:+50361587708">503.6158.7708</a> o <a className="text-dorado hover:underline" href="mailto:info@salex.sv">info@salex.sv</a>. Indique si viene referido por un agente de ventas.</li>
         <li>Salex le entrega las planillas y documentos necesarios. Llénelos y entréguelos junto con un cheque de $5,000 a nombre de <strong>Las Tres Tortugas SA de CV</strong>, o haga transferencia a la cuenta corriente <strong>#5490415375 del Banco Agrícola</strong>. Envíe comprobante a <a className="text-dorado hover:underline" href="mailto:info@salex.sv">info@salex.sv</a> y <a className="text-dorado hover:underline" href="mailto:ateneasv503@gmail.com">ateneasv503@gmail.com</a>.</li>
       </ol>
