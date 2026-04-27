@@ -1,5 +1,12 @@
+type Method = {
+  name: string
+  icon: React.ReactNode
+  description: string
+  badge?: string
+}
+
 export default function PaymentMethods() {
-  const methods = [
+  const methods: Method[] = [
     {
       name: "Tarjetas",
       icon: (
@@ -7,7 +14,8 @@ export default function PaymentMethods() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
         </svg>
       ),
-      description: "Visa, Mastercard, Amex"
+      description: "Visa, Mastercard, Amex",
+      badge: "PRÓXIMAMENTE"
     },
     {
       name: "Transferencia",
@@ -76,6 +84,11 @@ export default function PaymentMethods() {
                 <p className="text-marfil/60 text-xs lg:text-sm xl:text-xs">
                   {method.description}
                 </p>
+                {method.badge && (
+                  <span className="inline-block mt-3 px-3 py-1 text-[10px] lg:text-xs font-bold tracking-wider text-dorado border border-dorado/60 rounded-full">
+                    {method.badge}
+                  </span>
+                )}
               </div>
 
               {/* Decoración inferior */}
