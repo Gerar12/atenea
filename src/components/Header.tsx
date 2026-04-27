@@ -21,7 +21,7 @@ export default function Header() {
 
           {/* Botón Reservar */}
           <a
-            href="https://salex.sv"
+            href="https://salex.sv/lotificacion/cmohe1yj5000fph11itoetvuo"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 hover:bg-bosque/70 bg-black/45 border border-dorado/30 text-dorado font-semibold text-sm sm:text-base rounded-md transition-all duration-300 transform hover:scale-105 shadow-md"
