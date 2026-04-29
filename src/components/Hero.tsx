@@ -345,13 +345,6 @@ export default function Hero() {
                 )}
               </div>
 
-              {/* Info mínima */}
-              <div className="mt-8 flex gap-12">
-                <div>
-                  <p className="text-3xl lg:text-4xl font-light text-dorado">5min</p>
-                  <p className="text-sm text-marfil/60 uppercase tracking-widest mt-2">Del mar</p>
-                </div>
-              </div>
             </div>
           </div>
 
