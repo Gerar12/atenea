@@ -9,6 +9,7 @@ import HomeMap from '@/components/HomeMap'
 import Amenities from '@/components/Amenities'
 import Location from '@/components/Location'
 import Gallery from '@/components/Gallery'
+import VirtualTours from '@/components/VirtualTours'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Amenities />
       <Location />
       <Gallery />
+      <VirtualTours />
     </>
   )
 }

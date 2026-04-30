@@ -1,12 +1,27 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="w-full bg-bosque/95 fixed top-0 z-50">
+    <header
+      className={`w-full fixed top-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-bosque/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
@@ -19,7 +34,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Botón Reservar */}
           <a
             href="https://salex.sv/lotificacion/cmohe1yj5000fph11itoetvuo"
             target="_blank"
