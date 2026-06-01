@@ -4,10 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import LeadModal from './LeadModal'
 
-const HERO_VIDEO_URL =
-  'https://res.cloudinary.com/dewy8qqaf/video/upload/q_auto,f_auto/atenea/recorridos/parte-1.mp4'
-const HERO_VIDEO_POSTER =
-  'https://res.cloudinary.com/dewy8qqaf/video/upload/so_2,w_1920,q_auto,f_auto/atenea/recorridos/parte-1.jpg'
+const HERO_VIDEO_URL = '/videos/hero.mp4'
+const HERO_VIDEO_POSTER = '/videos/hero-poster.jpg'
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false)
