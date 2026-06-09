@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import LeadModal from './LeadModal'
 
@@ -9,6 +9,22 @@ const HERO_VIDEO_POSTER = '/videos/hero-poster.jpg'
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false)
+
+  // Primera visita: abrir el modal automáticamente y avisar al banner de
+  // cookies para que espere a que se cierre antes de mostrarse.
+  useEffect(() => {
+    if (localStorage.getItem('lead_modal_seen')) return
+    window.__leadModalPending = true
+    const t = setTimeout(() => setModalOpen(true), 1200)
+    return () => clearTimeout(t)
+  }, [])
+
+  const closeModal = () => {
+    setModalOpen(false)
+    localStorage.setItem('lead_modal_seen', '1')
+    window.__leadModalPending = false
+    window.dispatchEvent(new Event('lead-modal-done'))
+  }
 
   return (
     <>
@@ -73,7 +89,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <LeadModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <LeadModal open={modalOpen} onClose={closeModal} />
     </>
   )
 }
