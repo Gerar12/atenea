@@ -14,8 +14,7 @@ export default function Hero() {
   // banner de cookies para que espere a que se cierre antes de mostrarse.
   useEffect(() => {
     window.__leadModalPending = true
-    const t = setTimeout(() => setModalOpen(true), 1200)
-    return () => clearTimeout(t)
+    setModalOpen(true)
   }, [])
 
   const closeModal = () => {
