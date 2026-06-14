@@ -55,17 +55,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-base lg:text-lg xl:text-xl text-marfil/90 mb-6 font-light leading-relaxed drop-shadow-md">
-              Un concepto único en El Salvador. Experimenta un espacio diferente con una laguna turquesa, con playas privadas, espacios deportivos caminos peatonales y una futura marina al estero*. Sé parte de un paraíso exclusivo en un proyecto innovador y con gran oportunidad de inversión en el país.
+              Un concepto único en El Salvador. Experimenta un espacio diferente con una laguna turquesa, con playas privadas, espacios deportivos caminos peatonales y una futura marina al estero. Sé parte de un paraíso exclusivo en un proyecto innovador y con gran oportunidad de inversión en el país.
             </p>
-            <p className="text-xs text-marfil/60 mb-6 italic">
-              *Pendiente aprobación de Medio Ambiente
-            </p>
-
-            <div className="mb-8">
-              <span className="inline-block bg-dorado/20 backdrop-blur-sm border border-dorado/50 text-dorado px-6 py-2 rounded-full text-sm font-medium tracking-wider">
-                PRÓXIMAMENTE
-              </span>
-            </div>
 
             <div className="space-y-4">
               <p className="text-marfil/80 text-sm lg:text-base drop-shadow">
