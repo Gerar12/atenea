@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-arena: #e4dbd4;
+  --color-dorado: #cbb57c;
+  --color-bosque: #2b3628;
+  --color-piedra: #c3c8c1;
+  --color-marfil: #ebe8e3;
+
+  --font-family-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--color-bosque);
+  color: var(--color-marfil);
+  font-family: var(--font-family-sans);
+}
