@@ -11,14 +11,6 @@ export default function CookieBanner() {
     const consent = localStorage.getItem('cookie_consent')
     if (consent) return
 
-    // Si el LeadModal va a abrirse (primera visita), esperar a que se cierre
-    // antes de mostrar el banner para no encimar ambos diálogos.
-    if (window.__leadModalPending) {
-      const onDone = () => setTimeout(() => setShowBanner(true), 400)
-      window.addEventListener('lead-modal-done', onDone)
-      return () => window.removeEventListener('lead-modal-done', onDone)
-    }
-
     // Mostrar el banner después de un pequeño delay para mejor UX
     const t = setTimeout(() => setShowBanner(true), 1000)
     return () => clearTimeout(t)
