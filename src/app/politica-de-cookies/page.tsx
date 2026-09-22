@@ -84,17 +84,6 @@ export default function PoliticaCookies() {
                   </p>
                 </div>
               </div>
-
-              {/* Nota sobre Panel de Administración */}
-              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                <h3 className="font-semibold text-bosque mb-2">Nota sobre Panel de Administración</h3>
-                <p className="text-sm text-gray-700">
-                  El panel de administración interno (no accesible públicamente) utiliza cookies de
-                  sesión (<code className="bg-gray-200 px-1 py-0.5 rounded text-xs">next-auth.session-token</code>)
-                  para gestionar el acceso de administradores. Estas cookies no afectan a los
-                  visitantes normales del sitio web.
-                </p>
-              </div>
             </div>
           </section>
 

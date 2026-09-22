@@ -10,6 +10,12 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  // La invitación (RSVP) y su QR se retiraron el 2026-09-22 junto con la base de datos.
+  // Los QR impresos siguen apuntando aquí: se mandan a la portada en vez de dar 404.
+  redirects: async () => [
+    { source: '/invitacion', destination: '/', permanent: false },
+    { source: '/qr', destination: '/', permanent: false },
+  ],
   headers: async () => [
     {
       source: '/(.*)',
