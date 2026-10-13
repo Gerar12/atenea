@@ -89,17 +89,6 @@ export default function HomeMap() {
               </svg>
               USO DE INSTALACIONES
             </a>
-            <a
-              href="/Tiempos-Entrega-Obra-Civil-Atenea.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border border-dorado/60 text-dorado/90 hover:border-dorado hover:bg-dorado hover:text-bosque transition-all duration-300 text-xs lg:text-sm font-medium tracking-wider rounded-lg"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              TIEMPOS DE ENTREGA DE OBRA CIVIL
-            </a>
           </div>
         </div>
       </div>
